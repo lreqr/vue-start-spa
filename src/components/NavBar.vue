@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">My vue</a>
       <ul class="navbar-nav me-auto mb-lg-0">
-        <li v-for="(page, index) in pages" class="nav-item mx-2" :key="index">
+        <li v-for="(page, index) in publishedPages" class="nav-item mx-2" :key="index">
           <NavbarLink
               :page="page"
               :isActive="activePage === index"
@@ -40,6 +40,11 @@ export default {
   },
   created() {
     this.getThemeSetting();
+  },
+  computed: {
+    publishedPages() {
+      return this.pages.filter(p => p.published);
+    },
   },
   methods: {
     changeTheme() {
