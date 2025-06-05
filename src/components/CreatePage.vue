@@ -109,6 +109,13 @@ export default {
       this.published = false;
     }
   },
+  watch: {
+    pageTitle(newPageTitle, oldPageTitle){
+      if (this.link.url === oldPageTitle){
+        this.link.url = newPageTitle;
+      }
+    }
+  }
 }
 </script>
 
