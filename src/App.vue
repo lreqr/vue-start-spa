@@ -15,7 +15,7 @@
 <!--      :page="pages[activePage]"/>-->
 <!--</template>-->
  <CreatePage
-  :page-created="pageCreated">
+  @page-created="pageCreated">
  </CreatePage>
 </template>
 <script>
