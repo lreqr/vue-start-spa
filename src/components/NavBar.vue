@@ -5,14 +5,14 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">My vue</a>
       <ul class="navbar-nav me-auto mb-lg-0">
-        <li v-for="(page, index) in publishedPages" class="nav-item mx-2" :key="index">
-          <NavbarLink
-              :page="page"
-              :isActive="activePage === index"
-              @click.prevent="navLinkClick(index)"
-          >
-          </NavbarLink>
-        </li>
+        <NavbarLink
+            v-for="(page, index) in publishedPages" class="nav-item mx-2" :key="index"
+            :page="page"
+            :isActive="activePage === index"
+            :index="index"
+            @activated="$emit('activated')"
+        >
+        </NavbarLink>
       </ul>
 
       <form class="d-flex">
