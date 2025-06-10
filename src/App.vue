@@ -5,17 +5,19 @@
     :active-page="activePage"
   />
 
-  <div v-show="false">
+  <router-view></router-view>
 
-  </div>
+<!--  <div v-show="false">-->
 
-  <PageViewer
-      v-if="pages.length > 0"
-      :page="pages[activePage]"/>
+<!--  </div>-->
 
- <CreatePage
-  @page-created="pageCreated">
- </CreatePage>
+<!--  <PageViewer-->
+<!--      v-if="pages.length > 0"-->
+<!--      :page="pages[activePage]"/>-->
+
+<!-- <CreatePage-->
+<!--  @page-created="pageCreated">-->
+<!-- </CreatePage>-->
 </template>
 <script>
 import PageViewer from "./components/PageViewer.vue";
