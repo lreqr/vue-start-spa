@@ -8,15 +8,14 @@
         <NavbarLink
             v-for="(page, index) in publishedPages" class="nav-item mx-2" :key="index"
             :page="page"
-            :isActive="activePage === index"
             :index="index"
-            @activated="$emit('activated')"
         >
         </NavbarLink>
         <li>
           <router-link
             to="/create"
             class="nav-link"
+            active-class="active"
             aria-current="page"
         >Create page</router-link>
         </li>
@@ -39,14 +38,16 @@ export default {
   components: {
     NavbarLink,
   },
-  props: ['pages', 'activePage', 'navLinkClick'],
   data() {
     return {
       theme: 'light',
+      pages: [],
     }
   },
   created() {
     this.getThemeSetting();
+
+    this.pages = this.$pages.getAllPages()
   },
   computed: {
     publishedPages() {
