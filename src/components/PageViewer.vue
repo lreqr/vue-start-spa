@@ -7,12 +7,25 @@
 
 <script>
 export default {
+  //Second way to change the data in component by adding index as a prop
+  props: ['index'],
   created() {
     this.page = this.$pages.getSinglePage(this.$route.params.index);
+
+    //First way to change the data in component by watching the params to change
+    // this.$watch(() => this.$route.params, (newParams, oldParams) => {
+    //   this.page = this.$pages.getSinglePage(newParams.index);
+    // });
   },
   data() {
     return {
       page: null,
+    }
+  },
+  //Second way to change the data in component and watching the index prop to change page data value
+  watch: {
+    index(newIndex, oldIndex){
+      this.page = this.$pages.getSinglePage(newIndex);
     }
   }
 
