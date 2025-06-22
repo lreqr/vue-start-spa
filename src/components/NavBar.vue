@@ -13,6 +13,13 @@
             @activated="$emit('activated')"
         >
         </NavbarLink>
+        <li>
+          <router-link
+            to="/create"
+            class="nav-link"
+            aria-current="page"
+        >Create page</router-link>
+        </li>
       </ul>
 
       <form class="d-flex">
