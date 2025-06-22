@@ -8,7 +8,7 @@
       New page
     </router-link>
   </div>
-  <table class="table table-striped table-hover">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Title</th>
@@ -20,6 +20,7 @@
       <tr
         v-for="(page, index) in $pages.getAllPages()"
         :key="index"
+        @click="goToPage(index)"
       >
         <td>{{ page.pageTitle }}</td>
         <td>{{ page.link.text }}</td>
@@ -31,30 +32,30 @@
 
 <script setup>
 //setup for Composition API
-import {ref, reactive, inject} from "vue";
+import { ref, reactive, inject } from "vue";
+import { useRouter } from "vue-router";
 
 //ref example of counter
 //const counter = ref(0); //{value: 0}
 
 const data = reactive({counter: 0});
 const $pages = inject('$pages');
+const router = useRouter()
+
 function click(){
-  //ref example of counter
-  // counter.value++;
   data.counter++;
 }
 
-//Option API
-// export default {
-//   data() {
-//     return {
-//       counter: 0,
-//     }
-//   },
-//   methods: {
-//     click() {
-//       this.counter++;
-//     }
-//   }
-// }
+function goToPage(index){
+  router.push({path: `pages/${index}/edit`});
+}
+
 </script>
+
+<style scoped>
+
+.table.table-hover tr:hover{
+  cursor: pointer;
+}
+
+</style>
