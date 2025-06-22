@@ -9,6 +9,7 @@
 export default {
   //Second way to change the data in component by adding index as a prop
   props: ['index'],
+  inject: ['$pages'],
   created() {
     this.page = this.$pages.getSinglePage(this.$route.params.index);
 

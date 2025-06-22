@@ -13,11 +13,11 @@
         </NavbarLink>
         <li>
           <router-link
-            to="/pages/create"
+            to="/pages"
             class="nav-link"
             active-class="active"
             aria-current="page"
-        >Create page</router-link>
+        >Pages</router-link>
         </li>
       </ul>
 
@@ -38,6 +38,7 @@ export default {
   components: {
     NavbarLink,
   },
+  inject: ['$pages'],
   data() {
     return {
       theme: 'light',
